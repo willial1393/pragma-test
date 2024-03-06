@@ -10,12 +10,13 @@ class CatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? imageUrl;
     return GestureDetector(
       onTap: () async {
         await Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DetailScreen(cat: cat),
+            builder: (context) => DetailScreen(cat: cat, imageUrl: imageUrl),
           ),
         );
       },
@@ -32,7 +33,13 @@ class CatCard extends StatelessWidget {
                 ],
               ),
             ),
-            CatImage(referenceImageId: cat.referenceImageId),
+            CatImage(
+              referenceImageId: cat.referenceImageId,
+              imageUrl: imageUrl,
+              onImageUrlLoaded: (value) {
+                imageUrl = value;
+              },
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(

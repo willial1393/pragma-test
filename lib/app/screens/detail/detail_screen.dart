@@ -5,8 +5,9 @@ import 'package:pragma/core/models/cat.dart';
 
 class DetailScreen extends StatelessWidget {
   final Cat cat;
+  final String? imageUrl;
 
-  const DetailScreen({required this.cat, super.key});
+  const DetailScreen({required this.cat, super.key, this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,10 @@ class DetailScreen extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
-              child: CatImage(referenceImageId: cat.referenceImageId),
+              child: CatImage(
+                referenceImageId: cat.referenceImageId,
+                imageUrl: imageUrl,
+              ),
             ),
             const SizedBox(height: 16.0),
             Expanded(
