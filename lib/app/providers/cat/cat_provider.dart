@@ -31,7 +31,14 @@ class CatNotifier extends StateNotifier<CatState> {
       catsFiltered: value.isEmpty
           ? state.cats
           : state.cats
-              .where((cat) => cat.name?.contains(value) ?? false)
+              .where(
+                (cat) =>
+                    cat.name
+                        ?.trim()
+                        .toLowerCase()
+                        .contains(value.trim().toLowerCase()) ??
+                    false,
+              )
               .toList(),
     );
   }
