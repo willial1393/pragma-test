@@ -18,6 +18,12 @@ flutter pub get
 flutter run --dart-define-from-file="config.json"
 ```
 
+## Build
+
+```bash
+flutter build apk --release --dart-define-from-file="config.json"
+```
+
 ## Generate code
 
 ```bash
