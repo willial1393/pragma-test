@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pragma/app/providers/cat/cat_provider.dart';
 import 'package:pragma/app/screens/home/widgets/cat_card.dart';
@@ -16,6 +17,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void initState() {
+    FlutterNativeSplash.remove();
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(ref.read(catProvider.notifier).fetchAll());
@@ -33,7 +35,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: Column(
           children: [
             const CatSearch(),
-            const SizedBox( height: 16.0),
+            const SizedBox(height: 16.0),
             Expanded(
               child: Consumer(
                 builder: (context, ref, child) {

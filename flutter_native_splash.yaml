@@ -1,0 +1,9 @@
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/logo.jpeg
+  color_dark: "#121212"
+  image_dark: assets/logo.jpeg
+  background_image: assets/logo.jpeg
+  ios_content_mode: scaleAspectFit
+
+  web: false
