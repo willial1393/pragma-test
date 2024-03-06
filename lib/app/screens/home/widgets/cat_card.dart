@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pragma/app/screens/detail_screen.dart';
+import 'package:pragma/app/widgets/cat_image.dart';
 import 'package:pragma/core/models/cat.dart';
 
 class CatCard extends StatelessWidget {
@@ -11,10 +13,40 @@ class CatCard extends StatelessWidget {
     return Card(
       child: Column(
         children: [
-          Text(cat.name ?? ''),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(cat.name ?? ''),
+                GestureDetector(
+                  onTap: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            DetailScreen(cat: cat, imageUrl: ''),
+                      ),
+                    );
+                  },
+                  child: const Text('Más...'),
+                ),
+              ],
+            ),
+          ),
+          CatImage(referenceImageId: cat.referenceImageId),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(cat.origin ?? ''),
+                Text('Inteligencia: ${cat.intelligence}'),
+              ],
+            ),
+          ),
         ],
       ),
-
     );
   }
 }

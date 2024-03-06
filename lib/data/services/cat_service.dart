@@ -18,4 +18,10 @@ class CatService implements ICatService {
     }
     return cats;
   }
+
+  @override
+  Future<String> getImage({required String referenceImageId}) async {
+    final res = await catApi.get('/v1/images/$referenceImageId');
+    return res['url'];
+  }
 }

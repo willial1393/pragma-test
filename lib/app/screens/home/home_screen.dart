@@ -33,6 +33,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: Column(
           children: [
             const CatSearch(),
+            const SizedBox( height: 16.0),
             Expanded(
               child: Consumer(
                 builder: (context, ref, child) {
