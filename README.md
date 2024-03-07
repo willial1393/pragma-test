@@ -4,7 +4,7 @@ Application for pragma.
 
 ## Getting Started
 
-Install flutter 3.19.1
+Install flutter 3.19.2
 
 Create `config.json` file on root directory
 
@@ -21,7 +21,7 @@ flutter run --dart-define-from-file="config.json"
 ## Build
 
 ```bash
-flutter build apk --release --dart-define-from-file="config.json"
+flutter clean && flutter pub get && flutter build apk --release --dart-define-from-file="config.json"
 ```
 
 ## Generate code
